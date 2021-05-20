@@ -1,10 +1,36 @@
 const request = require('request')
 const { body } = require('express-validator')
+const nodemailer = require('nodemailer')
 
-const index = [
+const contact = [
     (req, res)=>{
-        res.send()
+
+        const { name, email, subject, message } = req.body;
+        const companyEmail = 'primaryemmy@gmail.com';
+
+        const tranporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: companyEmail,
+                pass: 'Emmanuel@dj1',
+            }
+        })
+
+        const mailOptions = {
+            from: email,
+            to: companyEmail,
+            subject: `Message from ${email}: ${subject}`,
+            text: message
+        }
+
+        tranporter.sendMail(mailOptions, (error, info)=>{
+            if(error){
+                return res.send(error)
+            }
+
+            res.send(info.response)
+        })
     }
 ]
 
-module.exports = { index }
+module.exports = { contact }

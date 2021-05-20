@@ -7,12 +7,13 @@ const contact = [
 
         const { name, email, subject, message } = req.body;
         const companyEmail = 'primaryemmy@gmail.com';
+        const password = 'Next Step Africa';
 
         const tranporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: companyEmail,
-                pass: 'Emmanuel@dj1',
+                pass: password,
             }
         })
 

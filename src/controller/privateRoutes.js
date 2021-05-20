@@ -29,7 +29,8 @@ const contact = [
                 return res.send(error)
             }
 
-            res.send(info.response)
+            // res.send(info.response)
+            res.jsonp({success : true})
         })
     }
 ]

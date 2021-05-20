@@ -13,7 +13,13 @@ const apply = [
     }
 ]
 
+const page404 = [
+    (req, res)=>{
+        res.render('404page')
+    }
+]
 module.exports = { 
     index,
-    apply 
+    apply,
+    page404 
 }

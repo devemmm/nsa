@@ -37,4 +37,4 @@ app.use((req, res, next) => {
 // Router Middleware
 app.use(publicRoutes);
 
-app.listen(3000, console.log("Sever is running on port"));
+app.listen(port, console.log("sever is running on port"));
